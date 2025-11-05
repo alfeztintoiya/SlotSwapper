@@ -23,6 +23,13 @@ Backend/   # Express API + Socket.IO
 Frontend/  # Vite + React (TS)
 ```
 
+## Live demo
+
+- Frontend (Vercel): https://slot-swapper-tau.vercel.app/
+- Backend: currently not available
+
+Note: The originally published backend endpoint does not serve the API because it was deployed to a static host (Netlify), which cannot run a long‑lived Express server. As a result, routes like `/api/health` return 404. To review the app end‑to‑end, please run the backend locally or deploy it to a Node host (Render/Heroku/Fly.io) as outlined below. The frontend stays live on Vercel.
+
 ## Data model (MongoDB)
 
 - User: { name, email, passwordHash }
@@ -158,7 +165,7 @@ curl -i -c /tmp/u1.cookies -H 'Content-Type: application/json' \
   - `VITE_API_URL=https://your-api.onrender.com/api`
   - `VITE_WS_URL=https://your-api.onrender.com`
 
-Note on Netlify: Netlify is great for static frontends, but an Express server requires a Node host (Render/Heroku/Fly.io). If you try to open `https://<netlify-app>/api/health`, you’ll get a 404 because there is no long‑running Node server behind that URL.
+
 
 ## Assumptions & edge cases
 
@@ -169,13 +176,6 @@ Note on Netlify: Netlify is great for static frontends, but an Express server re
 - Validation: Minimal; production apps should add stricter validation (Joi/Zod) and rate limiting.
 - Security: No email verification or password reset in this challenge.
 
-## Troubleshooting
-
-- 401 Unauthorized: Check cookies are set; verify `CORS_ORIGIN` matches the frontend origin exactly; ensure `withCredentials=true`.
-- Cookies not present cross‑site: Must be HTTPS; ensure `NODE_ENV=production`, SameSite=None; Secure; CORS allows your domain.
-- CORS errors: Confirm `CORS_ORIGIN` (single or comma‑separated) matches the actual frontend origin(s).
-- Port in use: Stop other processes on 4000 or change `PORT`.
-- Atlas connection issues: Add host egress IP to Atlas allowlist; URL‑encode special characters in the password.
 
 ## Scripts
 
@@ -190,4 +190,4 @@ Frontend
 
 ---
 
-If you want a Postman collection, I can generate one into `docs/` or embed curl recipes per endpoint. Also happy to add Docker Compose for one‑command local startup.
+
