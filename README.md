@@ -2,6 +2,13 @@
 
 Peer‑to‑peer time‑slot swapping app. Users mark calendar events as "swappable" and trade time slots with others. Built to exercise auth, data modeling, transactional logic (implemented via optimistic concurrency), and frontend state management with real‑time updates.
 
+> ⚠️ **Note:**  
+> The originally published backend endpoint is not functional because it was deployed on a static hosting service (**Netlify**), which doesn’t support running long-lived Node.js or Express servers.  
+> As a result, routes like `/api/health` will return a **404 Not Found** error.  
+> To review the app end-to-end, please run the backend locally or deploy it to a Node-compatible host such as **Render**, **Heroku**, or **Fly.io**.  
+> The frontend remains live on **Vercel**.
+
+
 ## Why this design
 
 - Backend in JavaScript (Express + Mongoose): simple, familiar stack and easy to deploy on Render. Optimistic, conditional updates instead of MongoDB multi‑document transactions so it works on local standalone Mongo and free Atlas tiers.
@@ -28,7 +35,7 @@ Frontend/  # Vite + React (TS)
 - Frontend (Vercel): https://slot-swapper-tau.vercel.app/
 - Backend: currently not available
 
-<p style="color: red;">Note: The originally published backend endpoint does not serve the API because it was deployed to a static host (Netlify), which cannot run a long‑lived Express server. As a result, routes like `/api/health` return 404. To review the app end‑to‑end, please run the backend locally or deploy it to a Node host (Render/Heroku/Fly.io) as outlined below. The frontend stays live on Vercel.</p>
+
 
 ## Data model (MongoDB)
 
