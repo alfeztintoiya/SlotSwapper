@@ -28,7 +28,7 @@ Frontend/  # Vite + React (TS)
 - Frontend (Vercel): https://slot-swapper-tau.vercel.app/
 - Backend: currently not available
 
-Note: The originally published backend endpoint does not serve the API because it was deployed to a static host (Netlify), which cannot run a long‑lived Express server. As a result, routes like `/api/health` return 404. To review the app end‑to‑end, please run the backend locally or deploy it to a Node host (Render/Heroku/Fly.io) as outlined below. The frontend stays live on Vercel.
+<p style="color: red;">Note: The originally published backend endpoint does not serve the API because it was deployed to a static host (Netlify), which cannot run a long‑lived Express server. As a result, routes like `/api/health` return 404. To review the app end‑to‑end, please run the backend locally or deploy it to a Node host (Render/Heroku/Fly.io) as outlined below. The frontend stays live on Vercel.</p>
 
 ## Data model (MongoDB)
 
